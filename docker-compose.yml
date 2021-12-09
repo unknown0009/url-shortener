@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  db:
+    container_name: urls_container
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: fidesy
+      POSTGRES_PASSWORD: secretpassQw
+      POSTGRES_DB: urls
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d urls -U fidesy"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  urlsapp:
+    container_name: urlsapp
+    build: ./
+    ports:
+      - '80:80'
+    depends_on:
+      db:
+        condition: service_healthy

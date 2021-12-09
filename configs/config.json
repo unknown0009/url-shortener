@@ -1,0 +1,5 @@
+{
+    "bind_addr": ":80",
+    "database_url": "postgresql://fidesy:secretpassQw@urls_container/urls?sslmode=disable",
+    "storage": "postgresql"
+}
