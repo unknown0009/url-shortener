@@ -49,9 +49,9 @@ func (s *APIServer) GetOriginalUrl() http.HandlerFunc {
 		url := mux.Vars(r)["url"]
 		original_url := s.store.GetOriginalUrl(url)
 		if original_url == "" {
-			w.Write([]byte("no such url found\n"))
+			w.Write([]byte("no such url found"))
 		} else {
-			w.Write([]byte(original_url + "\n"))
+			w.Write([]byte(original_url))
 		}
 	}
 }
@@ -62,6 +62,6 @@ func (s *APIServer) CreateShortUrl() http.HandlerFunc {
 		w.Header().Set("Content-Type", "text/plain")
 		url := r.FormValue("url")
 		short_url := s.store.CreateShortUrl(url)
-		w.Write([]byte(host + short_url + "\n"))
+		w.Write([]byte(host + short_url))
 	}
 }

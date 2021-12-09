@@ -8,7 +8,7 @@ A simple URL shortener application.
 - The service supports 2 data stores (in-memory and PostgreSQL). The -db parameter is used to define the database (local/postgresql).
 - The service accepts two requests
     - GET  /{short_url} takes a short url and returns the original.
-    - POST /?url="http://vk.com" saves the original url and returns the shortened.
+    - POST /?url=http://vk.com saves the original url and returns the shortened.
 
 
 ## **Setup**

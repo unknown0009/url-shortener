@@ -5,3 +5,9 @@ type Config struct {
 	DatabaseUrl string `json:"database_url"`
 	Storage     string `json:"storage"`
 }
+
+func NewConfig() *Config {
+	return &Config{
+		BindAddr: ":80",
+	}
+}
