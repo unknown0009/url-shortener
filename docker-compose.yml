@@ -21,6 +21,7 @@ services:
   urlsapp:
     container_name: urlsapp
     build: ./
+    command: -db=postgresql
     ports:
       - '80:80'
     depends_on:
